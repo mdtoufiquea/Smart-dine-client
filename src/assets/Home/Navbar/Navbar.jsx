@@ -9,9 +9,11 @@ const Navbar = () => {
   const navigate = useNavigate();
   console.log(user)
   const links = <>
-    <NavLink>See Menu</NavLink>
-    <NavLink>About</NavLink>
-    <NavLink>Admin Dashboard</NavLink>
+    <NavLink to='/'>Home</NavLink>
+    <NavLink to='/see-menu'>See Menu</NavLink>
+    <NavLink to='/about'>About</NavLink>
+    <NavLink to='/admin-dashboard'>Admin Dashboard</NavLink>
+    <NavLink>User Dashboard</NavLink>
   </>
 
 

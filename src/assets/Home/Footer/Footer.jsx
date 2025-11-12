@@ -1,59 +1,64 @@
 import React from 'react';
 import SmartDine from '../../Component/SmartDine';
+import { Facebook, Youtube, Twitter } from 'lucide-react';
 
 const Footer = () => {
-    return (
+  return (
+    <footer className="relative text-white py-12 px-6 md:px-20 mt-10 overflow-hidden">
+     
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-400 opacity-90 -z-10 animate-gradient-x"></div>
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/geometry2.png')] bg-repeat opacity-10 -z-5"></div>
+
+      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 relative z-10">
+        
+        <aside>
+          <h1 className="text-4xl font-extrabold [text-shadow:3px_3px_0px_#00000040] mb-3">
+            🍴 SmartDine
+          </h1>
+          <p className="text-sm text-white/90 leading-relaxed">
+            “Taste with Emotion” — where every meal tells a story.  
+            Bringing love, flavor, and freshness straight to your plate since 2018.
+          </p>
+          <p className="mt-4 text-white/80 text-sm">
+             SmartDine Ltd.  
+            All rights reserved.
+          </p>
+        </aside>
+
+        <nav>
+          <h6 className="text-2xl font-semibold mb-3 underline decoration-white/40">
+            Quick Links
+          </h6>
+          <ul className="space-y-2 text-white/90">
+            <li><a href="/" className="hover:text-yellow-200 transition">Home</a></li>
+            <li><a href="/about" className="hover:text-yellow-200 transition">About Us</a></li>
+            <li><a href="/see-menu" className="hover:text-yellow-200 transition">Menu</a></li>
+            <li><a href="/about" className="hover:text-yellow-200 transition">Contact</a></li>
+          </ul>
+        </nav>
+
         <div>
-            <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content p-10">
-  <aside>
-    <SmartDine></SmartDine>
-    <p>
-      TRKAAD Industries Ltd.
-      <br />
-      Providing reliable tech since 2018 
-    </p>
-  </aside>
-  <nav>
-    <h6 className="footer-title">Social</h6>
-    <div className="grid grid-flow-col gap-4">
-      <a href="https://x.com/home" target='_blank'>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          className="fill-current">
-          <path
-            d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-        </svg>
-      </a>
-      <a href="https://www.youtube.com/" target='_blank'>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          className="fill-current">
-          <path
-            d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-        </svg>
-      </a>
-      <a href="https://www.facebook.com/" target='_blank'>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          className="fill-current">
-          <path
-            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-        </svg>
-      </a>
-    </div>
-  </nav>
-</footer>
+          <h6 className="text-2xl font-semibold mb-3 underline decoration-white/40">
+            Follow Us
+          </h6>
+          <p className="text-white/90 mb-3">
+            Stay connected with SmartDine on your favorite platforms 🍕
+          </p>
+          <div className="flex gap-5 mt-3">
+            <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:scale-110 transition-transform">
+              <Twitter size={28} className="text-white hover:text-yellow-200" />
+            </a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noreferrer" className="hover:scale-110 transition-transform">
+              <Youtube size={28} className="text-white hover:text-yellow-200" />
+            </a>
+            <a href="https://www.facebook.com/" target="_blank" rel="noreferrer" className="hover:scale-110 transition-transform">
+              <Facebook size={28} className="text-white hover:text-yellow-200" />
+            </a>
+          </div>
         </div>
-    );
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

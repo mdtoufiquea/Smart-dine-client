@@ -35,8 +35,8 @@ const Register = () => {
       });
 
       // 🔹 Step 3: Save user info in MongoDB
-      const userData = { name, phone, photo, email, uid: user.uid, createdAt: new Date().toISOString(), };
-      const res = await fetch("http://localhost:5000/users", {
+      const userData = { name, phone, photo, email, uid: user.uid, role:'user', createdAt: new Date().toISOString(), };
+      const res = await fetch("https://smart-dine-server.vercel.app/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userData),
@@ -75,7 +75,7 @@ const Register = () => {
       const result = await signInWithGoogle();
       const user = result.user;
 
-      const res = await fetch("http://localhost:5000/users", {
+      const res = await fetch("https://smart-dine-server.vercel.app/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -83,6 +83,7 @@ const Register = () => {
           email: user.email,
           photoURL: user.photoURL,
           uid: user.uid,
+          role:'user',
           createdAt: new Date().toISOString(),
         })
       });

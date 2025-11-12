@@ -12,7 +12,7 @@ const Root = () => {
 
 
     if (loading) {
-        <span className="loading loading-spinner loading-xl r"></span>
+        return <span className="loading loading-infinity loading-xl "></span>
     }
     return (
         <div>

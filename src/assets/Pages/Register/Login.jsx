@@ -18,7 +18,7 @@ const Login = () => {
       const result = await signInWithGoogle();
       const user = result.user;
 
-      const res = await fetch("http://localhost:5000/users", {
+      const res = await fetch("https://smart-dine-server.vercel.app/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -26,6 +26,7 @@ const Login = () => {
           email: user.email,
           photoURL: user.photoURL,
           uid: user.uid,
+          role:'user',
           createdAt: new Date().toISOString(),
         })
       });

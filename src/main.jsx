@@ -9,6 +9,12 @@ import Home from './assets/Home/Home/Home.jsx';
 import AuthProvider from './assets/Contexts/AuthProvider.jsx';
 import Login from './assets/Pages/Register/Login.jsx';
 import Register from './assets/Pages/Register/Register.jsx';
+import About from './assets/Component/About.jsx';
+import AdminDashboard from './assets/AdminDashboard/AdminDashboard.jsx';
+import AddMenu from './assets/AdminDashboard/AddMenu.jsx';
+import SeeMenu from './assets/Component/SeeMenu.jsx';
+import AllUsers from './assets/Component/AllUsers.jsx';
+import AllMenu from './assets/AdminDashboard/AllMenu.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,9 +32,35 @@ const router = createBrowserRouter([
       {
         path:'/register',
         Component: Register
+      },
+      {
+        path: '/about',
+        Component: About
+      },
+      {
+        path:'/see-menu',
+        Component: SeeMenu
       }
     ]
   },
+  {
+    path: '/admin-dashboard',
+    Component: AdminDashboard,
+    children: [
+      {
+        index: true,
+        Component: AddMenu
+      },
+      {
+        path:'all-users',
+        Component: AllUsers
+      },
+      {
+        path:'all-menu',
+        Component: AllMenu
+      }
+    ]
+  }
 ]);
 
 
