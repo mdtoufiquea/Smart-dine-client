@@ -21,6 +21,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import AllOderMenu from './assets/AdminDashboard/AllOderMenu.jsx';
 import MyOderMenu from './assets/UserDashboard/MyOderMenu.jsx';
+import NotFound from './assets/Component/NotFound.jsx';
 
 
 const stripePromise = loadStripe("pk_test_51SDMVdGwiQeG7S29kVPT7kInhIWqPmd289GQ7nPhlOHxIXHx1aMfmu60ecGOTkSZmBMU54h52vuXCPoM7aLxT3FY00jqQ4ppcC");
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: '/see-menu',
         Component: SeeMenu
+      },
+      {
+        path: "*",
+        Component: NotFound
       }
     ]
   },
@@ -70,6 +75,10 @@ const router = createBrowserRouter([
       {
         path: 'all-oder-menus',
         Component: AllOderMenu
+      },
+      {
+        path: "*",
+        Component: NotFound
       }
     ]
   },
@@ -84,6 +93,10 @@ const router = createBrowserRouter([
       {
         path: 'my-orders',
         Component: MyOderMenu
+      },
+      {
+        path: "*",
+        Component:NotFound
       }
     ]
   }
