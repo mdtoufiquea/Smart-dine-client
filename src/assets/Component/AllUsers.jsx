@@ -101,6 +101,7 @@ const AllUsers = () => {
                         <tr>
                             <th>Image</th>
                             <th>Name</th>
+                            <th>Email</th>
                             <th>Role</th>
                             <th>Actions</th>
                         </tr>
@@ -116,6 +117,7 @@ const AllUsers = () => {
                                     />
                                 </td>
                                 <td>{user.name}</td>
+                                <td>{user.email}</td>
                                 <td>{user.role || "user"}</td>
                                 <td className="space-x-2">
                                     <button
@@ -152,6 +154,12 @@ const AllUsers = () => {
                             />
                             <div>
                                 <h3 className="font-bold text-lg">{user.name}</h3>
+                                <div className="w-30 border p-3">
+                                    <p className="text-sm text-gray-500 break-words whitespace-normal">
+                                        {user.email}
+                                    </p>
+                                </div>
+
                                 <p className="text-sm text-gray-500">{user.role || "user"}</p>
                             </div>
                         </div>
