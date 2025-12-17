@@ -6,12 +6,9 @@ import { updateProfile } from "firebase/auth";
 import { Eye, EyeOff } from "lucide-react";
 
 const Register = () => {
-  const { createUser, signInWithGoogle } = useContext(AuthContext);
+  const { createUser, signInWithGoogle} = useContext(AuthContext); // setUser include
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-
-
-
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -28,14 +25,24 @@ const Register = () => {
       const userCredential = await createUser(email, password);
       const user = userCredential.user;
 
-      // 🔹 Step 2: Update profile (name & photo)
+      // 🔹 Step 2: Update Firebase profile (name & photo)
       await updateProfile(user, {
         displayName: name,
         photoURL: photo,
+        phoneNumber: phone,
       });
 
       // 🔹 Step 3: Save user info in MongoDB
-      const userData = { name, phone, photo, email, uid: user.uid, role:'user', createdAt: new Date().toISOString(), };
+      const userData = {
+        name,
+        phone,
+        photoURL: photo,
+        email,
+        uid: user.uid,
+        role: "user", // default role
+        createdAt: new Date().toISOString(),
+      };
+
       const res = await fetch("https://smart-dine-server.vercel.app/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -68,35 +75,38 @@ const Register = () => {
     }
   };
 
-
-
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithGoogle();
       const user = result.user;
 
+      // 🔹 Save user to MongoDB
+      const userData = {
+        name: user.displayName || "",
+        phone: user.phoneNumber || "",
+        photoURL: user.photoURL || "",
+        email: user.email,
+        uid: user.uid,
+        role: "user",
+        createdAt: new Date().toISOString(),
+      };
+
       const res = await fetch("https://smart-dine-server.vercel.app/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: user.displayName,
-          email: user.email,
-          photoURL: user.photoURL,
-          uid: user.uid,
-          role:'user',
-          createdAt: new Date().toISOString(),
-        })
+        body: JSON.stringify(userData),
       });
 
       const data = await res.json();
 
-      if (data.success) {
+      if (data.insertedId || data.success) {
         Swal.fire({
           icon: "success",
           title: "Logged in!",
           text: `Welcome ${user.displayName}`,
-          showConfirmButton: true
+          showConfirmButton: true,
         });
+        navigate("/");
       } else {
         Swal.fire({
           icon: "info",
@@ -108,7 +118,7 @@ const Register = () => {
       Swal.fire({
         icon: "error",
         title: "Login failed",
-        text: error.message
+        text: error.message,
       });
       console.log(error);
     }
@@ -120,60 +130,19 @@ const Register = () => {
       <div className="card-body">
         <form onSubmit={handleRegister} className="fieldset">
           <label className="label">Name</label>
-          <input
-            type="text"
-            className="input"
-            placeholder="Enter your name"
-            name="name"
-            required
-          />
+          <input type="text" className="input" placeholder="Enter your name" name="name" required />
 
           <label className="label">Phone</label>
-          <input
-            type="number"
-            className="input"
-            placeholder="Enter your phone number"
-            name="phone"
-            required
-          />
+          <input type="text" className="input" placeholder="Enter your phone number" name="phone" required />
 
           <label className="label">Photo URL</label>
-          <input
-            type="text"
-            className="input"
-            placeholder="Enter your photo URL"
-            name="photo"
-            required
-          />
+          <input type="text" className="input" placeholder="Enter your photo URL" name="photo" required />
 
           <label className="label">Email</label>
-          <input
-            type="email"
-            className="input"
-            placeholder="Enter your email"
-            name="email"
-            required
-          />
+          <input type="email" className="input" placeholder="Enter your email" name="email" required />
 
           <label className="label">Password</label>
           <label className="input validator relative flex items-center">
-            <svg
-              className="h-[1em] opacity-50 mr-2"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-            >
-              <g
-                strokeLinejoin="round"
-                strokeLinecap="round"
-                strokeWidth="2.5"
-                fill="none"
-                stroke="currentColor"
-              >
-                <path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"></path>
-                <circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
-              </g>
-            </svg>
-
             <input
               type={showPassword ? "text" : "password"}
               required
@@ -184,10 +153,7 @@ const Register = () => {
               title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
               className="flex-1 pr-8"
             />
-            <span
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-2 cursor-pointer text-gray-500"
-            >
+            <span onClick={() => setShowPassword(!showPassword)} className="absolute right-2 cursor-pointer text-gray-500">
               {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
             </span>
           </label>
@@ -197,14 +163,12 @@ const Register = () => {
 
         <button onClick={handleGoogleLogin} className="btn bg-white text-black border-[#e5e5e5]">
           <svg aria-label="Google logo" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><g><path d="m0 0H512V512H0" fill="#fff"></path><path fill="#34a853" d="M153 292c30 82 118 95 171 60h62v48A192 192 0 0190 341"></path><path fill="#4285f4" d="m386 400a140 175 0 0053-179H260v74h102q-7 37-38 57"></path><path fill="#fbbc02" d="m90 341a208 200 0 010-171l63 49q-12 37 0 73"></path><path fill="#ea4335" d="m153 219c22-69 116-109 179-50l55-54c-78-75-230-72-297 55"></path></g></svg>
-          Register with Google
+          Login with Google
         </button>
 
         <h1 className="text-center mt-3">
           Already have an account?{" "}
-          <Link to="/login" className="text-blue-500 font-bold underline">
-            Login
-          </Link>
+          <Link to="/login" className="text-blue-500 font-bold underline">Login</Link>
         </h1>
       </div>
     </div>

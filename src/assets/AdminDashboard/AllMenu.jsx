@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 const AllMenu = () => {
   const [menus, setMenus] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [editingMenu, setEditingMenu] = useState(null); // কোন menu edit হচ্ছে
+  const [editingMenu, setEditingMenu] = useState(null);
   const [menuData, setMenuData] = useState({
     name: "",
     image: "",

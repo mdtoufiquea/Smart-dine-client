@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import Root from './assets/Root/Root.jsx';
@@ -15,7 +14,16 @@ import AddMenu from './assets/AdminDashboard/AddMenu.jsx';
 import SeeMenu from './assets/Component/SeeMenu.jsx';
 import AllUsers from './assets/Component/AllUsers.jsx';
 import AllMenu from './assets/AdminDashboard/AllMenu.jsx';
+import UserDashboard from './assets/UserDashboard/UserDashboard.jsx';
+import Profile from './assets/UserDashboard/Profile.jsx';
+import CartProvider from './assets/Contexts/CartContext.jsx';
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import AllOderMenu from './assets/AdminDashboard/AllOderMenu.jsx';
+import MyOderMenu from './assets/UserDashboard/MyOderMenu.jsx';
 
+
+const stripePromise = loadStripe("pk_test_51SDMVdGwiQeG7S29kVPT7kInhIWqPmd289GQ7nPhlOHxIXHx1aMfmu60ecGOTkSZmBMU54h52vuXCPoM7aLxT3FY00jqQ4ppcC");
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,7 +38,7 @@ const router = createBrowserRouter([
         Component: Login
       },
       {
-        path:'/register',
+        path: '/register',
         Component: Register
       },
       {
@@ -38,7 +46,7 @@ const router = createBrowserRouter([
         Component: About
       },
       {
-        path:'/see-menu',
+        path: '/see-menu',
         Component: SeeMenu
       }
     ]
@@ -52,12 +60,30 @@ const router = createBrowserRouter([
         Component: AddMenu
       },
       {
-        path:'all-users',
+        path: 'all-users',
         Component: AllUsers
       },
       {
-        path:'all-menu',
+        path: 'all-menu',
         Component: AllMenu
+      },
+      {
+        path: 'all-oder-menus',
+        Component: AllOderMenu
+      }
+    ]
+  },
+  {
+    path: '/user-dashboard',
+    Component: UserDashboard,
+    children: [
+      {
+        index: true,
+        Component: Profile
+      },
+      {
+        path: 'my-orders',
+        Component: MyOderMenu
       }
     ]
   }
@@ -67,7 +93,11 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <CartProvider>
+        <Elements stripe={stripePromise}>
+          <RouterProvider router={router} />
+        </Elements>
+      </CartProvider>
     </AuthProvider>
   </StrictMode>,
 )

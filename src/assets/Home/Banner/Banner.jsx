@@ -15,44 +15,53 @@ const Banner = () => {
                 modules={[Autoplay]}
             >
                 <SwiperSlide>
-                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190" src="https://i.ibb.co.com/5hDNRb4m/top-view-beyti-kebab-served-with-ayran-pickles.jpg" />
+                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190 object-cover" src="https://i.ibb.co.com/ymFR0mYW/Gemini-Generated-Image-57ojy457ojy457oj.png" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190 object-cover" src="https://i.ibb.co.com/jP9Q0b9g/Gemini-Generated-Image-wz9difwz9difwz9d.png" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190 object-cover" src="https://i.ibb.co.com/tTYMcydx/Gemini-Generated-Image-el1myrel1myrel1m.png" />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190 object-cover" src="https://i.ibb.co.com/5hDNRb4m/top-view-beyti-kebab-served-with-ayran-pickles.jpg" />
                 </SwiperSlide>
 
 
                 <SwiperSlide>
-                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190" src="https://i.ibb.co.com/DsHjyk7/lavash-rolls-top-view-table.jpg" />
+                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190 object-cover" src="https://i.ibb.co.com/DsHjyk7/lavash-rolls-top-view-table.jpg" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190" src="https://i.ibb.co.com/MkVvJrxG/beyti-kebab-served-with-ayran-pickles-2.jpg" />
+                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190 object-cover" src="https://i.ibb.co.com/MkVvJrxG/beyti-kebab-served-with-ayran-pickles-2.jpg" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190" src="https://i.ibb.co.com/Psn70BC0/arrangement-thanksgiving-day-delicious-dinner.jpg" />
+                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190 object-cover" src="https://i.ibb.co.com/Psn70BC0/arrangement-thanksgiving-day-delicious-dinner.jpg" />
                 </SwiperSlide>
                 <SwiperSlide>
                     <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190" src="https://i.ibb.co.com/WvpgNcv2/top-view-table-full-delicious-food-composition.jpg" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190" src="https://i.ibb.co.com/Z6c1q4TV/delicious-lobster-gourmet-seafood.jpg" />
+                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190 object-cover" src="https://i.ibb.co.com/Z6c1q4TV/delicious-lobster-gourmet-seafood.jpg" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190" src="https://i.ibb.co.com/DD1kN2bV/top-view-meals-tasty-yummy-different-pastries-dishes-brown-surface.jpg" />
-                </SwiperSlide>
-
-                <SwiperSlide>
-                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190" src="https://i.ibb.co.com/23hQhnJC/turkish-beyti-kebab-served-with-yogurt-pepper-tomato.jpg" />
+                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190 object-cover" src="https://i.ibb.co.com/DD1kN2bV/top-view-meals-tasty-yummy-different-pastries-dishes-brown-surface.jpg" />
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190" src="https://i.ibb.co.com/84rLy1NH/meat-cutlet-with-french-fries-ketchup-mayo-tarhun-lemonade-bread-table-1.jpg" />
+                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190 object-cover" src="https://i.ibb.co.com/23hQhnJC/turkish-beyti-kebab-served-with-yogurt-pepper-tomato.jpg" />
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190 object-cover" src="https://i.ibb.co.com/84rLy1NH/meat-cutlet-with-french-fries-ketchup-mayo-tarhun-lemonade-bread-table-1.jpg" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190" src="https://i.ibb.co.com/84rLy1NH/meat-cutlet-with-french-fries-ketchup-mayo-tarhun-lemonade-bread-table-1.jpg" />
+                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190 object-cover" src="https://i.ibb.co.com/84rLy1NH/meat-cutlet-with-french-fries-ketchup-mayo-tarhun-lemonade-bread-table-1.jpg" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190" src="https://i.ibb.co.com/PG35sqDL/well-done-steak-homemade-potatoes.jpg" />
+                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190 object-cover" src="https://i.ibb.co.com/PG35sqDL/well-done-steak-homemade-potatoes.jpg" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190" src="https://i.ibb.co.com/QF4fJtDZ/beyti-kebab-served-with-ayran-pickles.jpg" />
+                    <img className="rounded-2xl h-100 w-full md:h-140 lg:h-190 object-cover" src="https://i.ibb.co.com/QF4fJtDZ/beyti-kebab-served-with-ayran-pickles.jpg" />
                 </SwiperSlide>
             </Swiper>
         </div>

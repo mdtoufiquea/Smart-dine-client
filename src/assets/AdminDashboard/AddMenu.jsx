@@ -77,7 +77,7 @@ const AddMenu = () => {
       >
         <h2 className="text-2xl font-bold text-center mb-4">Add New Menu</h2>
 
-        {/* Menu Name */}
+         {/* Menu Name  */}
         <div>
           <label className="font-semibold">Menu Name </label>
           <input
@@ -91,7 +91,7 @@ const AddMenu = () => {
           />
         </div>
 
-        {/* Image URL */}
+         {/* Image URL  */}
         <div>
           <label className="font-semibold">Image URL </label>
           <input

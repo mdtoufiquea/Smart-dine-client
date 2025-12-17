@@ -25,29 +25,47 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
-    
+
     const signInWithGoogle = () => {
         setLoading(true);
         return signInWithPopup(auth, googleProvider);
     };
 
     useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser);
-            setLoading(false)
-        })
-        return () => {
-            unSubscribe();
-        }
-    },[])
+        const unsubscribe = onAuthStateChanged(auth, async currentUser => {
+            if (currentUser) {
+                try {
+                    const res = await fetch(`https://smart-dine-server.vercel.app/users/${currentUser.email}`);
+                    const data = await res.json();
+
+                    setUser({
+                        email: currentUser.email,
+                        displayName: currentUser.displayName,
+                        photoURL: currentUser.photoURL,
+                        phoneNumber: data.phone,
+                        role: data.role || "user"
+                    });
+                } catch (err) {
+                    setUser(currentUser);
+                    console.log(err)
+                }
+            } else {
+                setUser(null);
+            }
+            setLoading(false);
+        });
+
+        return () => unsubscribe();
+    }, []);
     const userInfo = {
         user,
+        setUser,
         loading,
         createUser,
         signIn,
         logOut,
         signInWithGoogle,
-       
+
     }
     return (
         <AuthContext value={userInfo}>

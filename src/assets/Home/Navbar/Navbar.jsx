@@ -7,19 +7,77 @@ import Swal from 'sweetalert2';
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
-  console.log(user)
-  const links = <>
-    <NavLink to='/'>Home</NavLink>
-    <NavLink to='/see-menu'>See Menu</NavLink>
-    <NavLink to='/about'>About</NavLink>
-    <NavLink to='/admin-dashboard'>Admin Dashboard</NavLink>
-    <NavLink>User Dashboard</NavLink>
-  </>
+  console.log("Current user:", user)
+  const links = (
+    <>
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive ? "font-bold underline text-primary" : ""
+        }
+      >
+        Home
+      </NavLink>
+
+      <NavLink
+        to="/see-menu"
+        className={({ isActive }) =>
+          isActive ? "font-bold underline text-primary" : ""
+        }
+      >
+        See Menu
+      </NavLink>
+
+      <NavLink
+        to="/about"
+        className={({ isActive }) =>
+          isActive ? "font-bold underline text-primary" : ""
+        }
+      >
+        About
+      </NavLink>
+
+      <NavLink
+        to={user?.role === "admin" ? "/admin-DashBoard" : "#"}
+        className={({ isActive }) =>
+          user?.role === "admin"
+            && isActive
+            ? " font-bold underline text-primary"
+            : ""
+
+        }
+        onClick={(e) => {
+          if (user?.role !== "admin") {
+            e.preventDefault();
+            Swal.fire({
+              icon: "error",
+              title: "Access Denied",
+              text: "You are not Admin",
+              timer: 2000,
+              showConfirmButton: false
+            });
+          }
+        }}
+      >
+        Admin Dashboard
+      </NavLink>
+
+      <NavLink
+        to="/user-dashboard"
+        className={({ isActive }) =>
+          isActive ? "font-bold underline text-primary" : ""
+        }
+      >
+        User Dashboard
+      </NavLink>
+    </>
+  );
+
 
 
   const handleLogout = async () => {
     try {
-      await logOut(); 
+      await logOut();
       Swal.fire({
         title: "Logged Out!",
         text: "You have been logged out successfully.",
@@ -69,7 +127,7 @@ const Navbar = () => {
               </p>
               <NavLink>
                 <img
-                  className="rounded-full w-8 h-8 md:mr-3 mr-1 border-b-gray-950 border-1"
+                  className="rounded-full w-8 h-8 md:mr-3 mr-1 border-b-gray-950 border-1 object-cover"
                   src={user.photoURL}
                   alt={user.displayName}
                 />

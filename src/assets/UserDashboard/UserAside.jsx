@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { MoreVertical, X } from "lucide-react";
 import { Link } from 'react-router';
 
-const AdminAside = () => {
+const UserAside = () => {
     const [isOpen, setIsOpen] = useState(false);
     return (
+
         <div>
             <aside
                 className={`fixed lg:static md:h-screen w-50 bg-gray-100 shadow-md p-4 transform transition-transform duration-300 z-40  font-bold
@@ -19,35 +20,17 @@ const AdminAside = () => {
                             className="block p-2 rounded hover:bg-gray-200"
                             onClick={() => setIsOpen(false)}
                         >
-                            Add Menu
+                            Profile
                         </Link>
                     </li>
 
                     <li>
                         <Link
-                            to='/admin-dashboard/all-oder-menus'
+                            to='/user-dashboard/my-orders'
                             className="block p-2 rounded hover:bg-gray-200"
                             onClick={() => setIsOpen(false)}
                         >
-                            All Oder Menu
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to='/admin-dashboard/all-menu'
-                            className="block p-2 rounded hover:bg-gray-200"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            All Menu
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to='/admin-dashboard/all-users'
-                            className="block p-2 rounded hover:bg-gray-200"
-                            onClick={() => setIsOpen(false)}
-                        >
-                            Manage Users
+                            My  all oder
                         </Link>
                     </li>
 
@@ -67,4 +50,4 @@ const AdminAside = () => {
     );
 };
 
-export default AdminAside;
+export default UserAside;
