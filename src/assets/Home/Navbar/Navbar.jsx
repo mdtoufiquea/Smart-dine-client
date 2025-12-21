@@ -125,12 +125,15 @@ const Navbar = () => {
               <p className="hidden md:hidden lg:block my-auto text-xl font-semibold mr-5">
                 {user.displayName}
               </p>
-              <NavLink>
-                <img
-                  className="rounded-full w-8 h-8 md:mr-3 mr-1 border-b-gray-950 border-1 object-cover"
-                  src={user.photoURL}
-                  alt={user.displayName}
-                />
+              <NavLink
+              to='/user-dashboard'>
+                {
+                  user ? <img
+                    className="rounded-full w-8 h-8 md:mr-3 mr-1 border-b-gray-950 border-1 object-cover"
+                    src={user.photoURL}
+                    alt={user.displayName}
+                  /> : <img className="rounded-full w-8 h-8 md:mr-3 mr-1 border-b-gray-950 border-1 object-cover" src="https://i.ibb.co.com/Z6J3ZZWB/blank-profile-picture-973460-640.webp" alt={user.displayName} />
+                }
               </NavLink>
             </div>
           )}
