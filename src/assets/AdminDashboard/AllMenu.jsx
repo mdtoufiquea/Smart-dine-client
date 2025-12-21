@@ -221,7 +221,7 @@ const AllMenu = () => {
                 <td>{menu.description}</td>
                 <td className="space-x-2">
                   <button
-                    className="btn btn-sm btn-primary"
+                    className="btn btn-sm btn-primary mb-2"
                     onClick={() => handleEdit(menu)}
                   >
                     Edit
@@ -256,7 +256,7 @@ const AllMenu = () => {
               Category: {menu.category} | Price: {menu.price}
             </p>
             <p className="text-sm">{menu.description}</p>
-            <div className="flex gap-2 mt-2">
+            <div className="flex gap-2 mt-2 ">
               <button
                 onClick={() => handleEdit(menu)}
                 className="btn btn-sm btn-primary flex-1"

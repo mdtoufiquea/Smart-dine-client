@@ -17,11 +17,10 @@ const Footer = () => {
           </h1>
           <p className="text-sm text-white/90 leading-relaxed">
             “Taste with Emotion” — where every meal tells a story.  
-            Bringing love, flavor, and freshness straight to your plate since 2018.
+            Bringing love, flavor, and freshness straight to your plate since 2025
           </p>
           <p className="mt-4 text-white/80 text-sm">
-             SmartDine Ltd.  
-            All rights reserved.
+             SmartDine Ltd
           </p>
         </aside>
 

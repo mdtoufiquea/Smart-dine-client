@@ -64,7 +64,7 @@ const About = () => {
                             Have any questions or feedback? We'd love to hear from you! 💌
                         </p>
                         <ul className="mt-3 space-y-2 text-gray-700">
-                            <li>📍 Location: 123 Food Street, Dhaka, Bangladesh</li>
+                            <li>📍 Location: Naonaon Polytechnic Institute, Dhaka, Bangladesh</li>
                             <li>📞 Phone: +880 1234-567890</li>
                             <li>✉️ Email: support@smartdine.com</li>
                             <div className="flex gap-10 pt-5">

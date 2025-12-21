@@ -118,6 +118,11 @@ const SeeMenu = () => {
                                             Price: {menu.price} BDT
                                         </p>
                                     )}
+                                    {menu.quantity && (
+                                        <p className="text-gray-600 font-bold mt-1">
+                                            Quantity: {menu.quantity}+
+                                        </p>
+                                    )}
                                     <p className="text-yellow-500 font-semibold mt-1">
                                         ⭐ {menu.avgRating ? menu.avgRating : "4.8"}
                                     </p>

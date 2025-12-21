@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const CheckoutForm = ({ orderData, closeModal }) => {
     const stripe = useStripe();
     const elements = useElements();
+    const navigate = useNavigate()
 
     const [formData, setFormData] = useState({
         name: orderData.name || "",
@@ -85,6 +87,7 @@ const CheckoutForm = ({ orderData, closeModal }) => {
 
                 Swal.fire("Success", "Order Placed Successfully!", "success");
                 closeModal();
+                navigate('/user-dashboard/my-orders')
             }
         } catch (err) {
             console.error(err);

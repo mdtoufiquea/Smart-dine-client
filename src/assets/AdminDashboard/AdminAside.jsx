@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MoreVertical, X } from "lucide-react";
-import { Link } from 'react-router';
+import {  NavLink } from 'react-router';
 
 const AdminAside = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -14,41 +14,64 @@ const AdminAside = () => {
                 <ul className="space-y-3">
 
                     <li>
-                        <Link
-
-                            className="block p-2 rounded hover:bg-gray-200"
+                        <NavLink
+                            to="/admin-dashboard"
+                             end
                             onClick={() => setIsOpen(false)}
+                            className={({ isActive }) =>
+                                `block p-2 rounded hover:bg-gray-200 ${isActive
+                                    ? "font-bold underline text-blue-600 bg-gray-100"
+                                    : "text-gray-700"
+                                }`
+                            }
                         >
                             Add Menu
-                        </Link>
+                        </NavLink>
                     </li>
 
                     <li>
-                        <Link
-                            to='/admin-dashboard/all-oder-menus'
-                            className="block p-2 rounded hover:bg-gray-200"
+                        <NavLink
+                            to="/admin-dashboard/all-oder-menus"
                             onClick={() => setIsOpen(false)}
+                            className={({ isActive }) =>
+                                `block p-2 rounded hover:bg-gray-200 ${isActive
+                                    ? "font-bold underline text-blue-600 bg-gray-100"
+                                    : "text-gray-700"
+                                }`
+                            }
                         >
                             All Oder Menu
-                        </Link>
+                        </NavLink>
                     </li>
+
                     <li>
-                        <Link
-                            to='/admin-dashboard/all-menu'
-                            className="block p-2 rounded hover:bg-gray-200"
+                        <NavLink
+                            to="/admin-dashboard/all-menu"
                             onClick={() => setIsOpen(false)}
+                            className={({ isActive }) =>
+                                `block p-2 rounded hover:bg-gray-200 ${isActive
+                                    ? "font-bold underline text-blue-600 bg-gray-100"
+                                    : "text-gray-700"
+                                }`
+                            }
                         >
                             All Menu
-                        </Link>
+                        </NavLink>
                     </li>
+
                     <li>
-                        <Link
-                            to='/admin-dashboard/all-users'
-                            className="block p-2 rounded hover:bg-gray-200"
+                        <NavLink
+                            to="/admin-dashboard/all-users"
                             onClick={() => setIsOpen(false)}
+                            className={({ isActive }) =>
+                                `block p-2 rounded hover:bg-gray-200 ${isActive
+                                    ? "font-bold underline text-blue-600 bg-gray-100"
+                                    : "text-gray-700"
+                                }`
+                            }
                         >
                             Manage Users
-                        </Link>
+                        </NavLink>
                     </li>
 
                 </ul>

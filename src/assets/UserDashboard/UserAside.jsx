@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MoreVertical, X } from "lucide-react";
-import { Link } from 'react-router';
+import { NavLink } from 'react-router';
 
 const UserAside = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,23 +15,34 @@ const UserAside = () => {
                 <ul className="space-y-3">
 
                     <li>
-                        <Link
-
-                            className="block p-2 rounded hover:bg-gray-200"
+                        <NavLink
+                            to="/user-dashboard"
+                            end
                             onClick={() => setIsOpen(false)}
+                            className={({ isActive }) =>
+                                `block p-2 rounded hover:bg-gray-200 ${isActive
+                                    ? "font-bold underline text-blue-600 bg-gray-100"
+                                    : "text-gray-700"
+                                }`
+                            }
                         >
                             Profile
-                        </Link>
+                        </NavLink>
                     </li>
 
                     <li>
-                        <Link
-                            to='/user-dashboard/my-orders'
-                            className="block p-2 rounded hover:bg-gray-200"
+                        <NavLink
+                            to="/user-dashboard/my-orders"
                             onClick={() => setIsOpen(false)}
+                            className={({ isActive }) =>
+                                `block p-2 rounded hover:bg-gray-200 ${isActive
+                                    ? "font-bold underline text-blue-600 bg-gray-100"
+                                    : "text-gray-700"
+                                }`
+                            }
                         >
-                            My  all oder
-                        </Link>
+                            My All Order
+                        </NavLink>
                     </li>
 
                 </ul>

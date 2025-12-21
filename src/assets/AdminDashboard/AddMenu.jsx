@@ -70,7 +70,7 @@ const AddMenu = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-base-200 p-4 rounded-2xl">
+    <div className="flex justify-center items-center min-h-screen bg-base-200 p-4 rounded-2xl mx-auto">
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-xl rounded-2xl p-6 w-full max-w-lg space-y-4"
@@ -114,7 +114,7 @@ const AddMenu = () => {
               name="category"
               value={menuData.category}
               onChange={handleChange}
-              placeholder="e.g. Drinks, Snacks"
+              placeholder="Example: Drinks, Snacks"
               className="input input-bordered w-full"
               required
             />
@@ -126,7 +126,7 @@ const AddMenu = () => {
               name="price"
               value={menuData.price}
               onChange={handleChange}
-              placeholder="e.g. 120"
+              placeholder="Example: 120"
               className="input input-bordered w-full"
               required
             />
@@ -141,7 +141,7 @@ const AddMenu = () => {
             name="quantity"
             value={menuData.quantity}
             onChange={handleChange}
-            placeholder="e.g. 50"
+            placeholder="Example: 50"
             className="input input-bordered w-full"
             required
           />
