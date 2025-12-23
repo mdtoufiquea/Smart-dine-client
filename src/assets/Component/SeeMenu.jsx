@@ -13,6 +13,7 @@ const SeeMenu = () => {
     const [filteredMenus, setFilteredMenus] = useState([]);
     const [showCart, setShowCart] = useState(false);
     const [showOrderForm, setShowOrderForm] = useState(false);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     const [orderType, setOrderType] = useState("");
     const [name, setName] = useState(user?.displayName || "");
@@ -22,6 +23,16 @@ const SeeMenu = () => {
 
     const set = { setAddress, setOrderType, setName, setPhone, setTableNo }
     console.log(set)
+
+    useEffect(() => {
+        const total = cart.reduce((sum, item) => {
+            const price = typeof item.price === 'string'
+                ? parseInt(item.price.replace(/\D/g, ''), 10)
+                : item.price;
+            return sum + price;
+        }, 0);
+        setTotalPrice(total);
+    }, [cart]);
 
     // 🔄 Load Menus
     useEffect(() => {
@@ -191,12 +202,14 @@ const SeeMenu = () => {
                             </div>
                         ))}
 
-                        <p className="font-semibold text-sm text-gray-700 mt-2">
-                            After the food is delivered, the delivery man will tell the
-                            delivery charge according to the address, and that amount has
-                            to be paid to the delivery man.
-                        </p>
-
+                        <div className="border-1 rounded p-2">
+                            <h1 className=" font-bold text-red-500">Total Price: <span className="text-xl">{totalPrice}</span> BDT</h1>
+                            <p className="font-semibold text-sm text-gray-700 mt-2">
+                                After the food is delivered, the delivery man will tell the
+                                delivery charge according to the address, and that amount has
+                                to be paid to the delivery man.
+                            </p>
+                        </div>
                         <div className="flex justify-between mt-4">
                             <button
                                 onClick={() => setShowCart(false)}
